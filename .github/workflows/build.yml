@@ -1,0 +1,32 @@
+name: Build PCL-CE Region Unlocker
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: windows-latest
+          - arch: ARM64
+            runner: windows-11-arm
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build and package
+        shell: pwsh
+        run: ./build.ps1 -Architecture '${{ matrix.arch }}'
+      - name: Upload package
+        uses: actions/upload-artifact@v7
+        with:
+          name: PCL-CE-Region-Unlocker-${{ matrix.arch }}
+          path: dist/${{ matrix.arch }}/
+          if-no-files-found: error

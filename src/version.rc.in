@@ -1,0 +1,30 @@
+#include <winver.h>
+
+1 VERSIONINFO
+ FILEVERSION @PROJECT_VERSION_MAJOR@,@PROJECT_VERSION_MINOR@,@PROJECT_VERSION_PATCH@,0
+ PRODUCTVERSION @PROJECT_VERSION_MAJOR@,@PROJECT_VERSION_MINOR@,@PROJECT_VERSION_PATCH@,0
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEFLAGS 0
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_DLL
+ FILESUBTYPE 0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "PCL-CE Region Unlocker\0"
+            VALUE "FileVersion", "@PROJECT_VERSION@.0\0"
+            VALUE "InternalName", "PCL-CE Region Unlocker\0"
+            VALUE "LegalCopyright", "Copyright (c) 2026 York Waugh\0"
+            VALUE "OriginalFilename", "winmm.dll\0"
+            VALUE "ProductName", "PCL-CE Region Unlocker\0"
+            VALUE "ProductVersion", "@PROJECT_VERSION@\0"
+            VALUE "Comments", "Independent extension for PCL-CE. Overrides download region policy only.\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
